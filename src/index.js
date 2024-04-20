@@ -2,6 +2,15 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
+const skills = [
+  { skill: "HTML + CSS", level: "intermediate", color: "Cyan" },
+  { skill: "JavaScript", level: "intermediate", color: "Yellow" },
+  { skill: "React", level: "beginner", color: "Blue" },
+  { skill: "Node.js", level: "beginner", color: "Green" },
+  { skill: "MongoDB", level: "beginner", color: "Green" },
+  { skill: "C++", level: "intermediate", color: "Purple" },
+];
+
 function App() {
   return (
     <div className="card">
@@ -29,8 +38,8 @@ function Avatar() {
 function Intro() {
   return (
     <div>
-      <h1>John Doe</h1>
-      <p>Web Developer</p>
+      <h1>Fardin Ahsan Shafi</h1>
+      <p>Web Developer | AI Enthusiast</p>
     </div>
   );
 }
@@ -38,21 +47,18 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skills">
-      <Skill name="HTML" level="90%" />
-      <Skill name="CSS" level="80%" />
-      <Skill name="JavaScript" level="70%" />
-      <Skill name="React" level="60%" />
+      {skills.map((skill) => (
+        <Skill skill={skill.skill} color={skill.color} level={skill.level} />
+      ))}
     </div>
   );
 }
 
-function Skill({ name, level }) {
+function Skill({ skill, color, level }) {
   return (
-    <div className="skill">
-      <h3>{name}</h3>
-      <div className="level" style={{ width: level }}>
-        {level}
-      </div>
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
+      <span>{level === "beginner" "}</span>
     </div>
   );
 }
