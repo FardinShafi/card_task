@@ -6,9 +6,9 @@ const skills = [
   { skill: "HTML + CSS", level: "intermediate", color: "Cyan" },
   { skill: "JavaScript", level: "intermediate", color: "Yellow" },
   { skill: "React", level: "beginner", color: "Blue" },
-  { skill: "Node.js", level: "beginner", color: "Green" },
+  { skill: "Node.js", level: "beginner", color: "Lime" },
   { skill: "MongoDB", level: "beginner", color: "Green" },
-  { skill: "C++", level: "intermediate", color: "Purple" },
+  { skill: "C++", level: "intermediate", color: "Violet" },
 ];
 
 function App() {
@@ -39,14 +39,22 @@ function Intro() {
   return (
     <div>
       <h1>Fardin Ahsan Shafi</h1>
-      <p>Web Developer | AI Enthusiast</p>
+      <p>
+        <b>Web Developer | AI Enthusiast</b>
+      </p>
+      <p>
+        Passionate programmer with decent knowledge is latest web stack and an
+        AI enthusiast. When not coding or learning about machine learning , I
+        like to play games, to draw, or to just enjoy some solo jamming with my
+        guitar.
+      </p>
     </div>
   );
 }
 
 function SkillList() {
   return (
-    <div className="skills">
+    <div className="skill-list">
       {skills.map((skill) => (
         <Skill skill={skill.skill} color={skill.color} level={skill.level} />
       ))}
@@ -58,7 +66,11 @@ function Skill({ skill, color, level }) {
   return (
     <div className="skill" style={{ backgroundColor: color }}>
       <span>{skill}</span>
-      <span>{level === "beginner" "}</span>
+      <span>
+        {level === "beginner" && "👶"}
+        {level === "intermediate" && "👍"}
+        {level === "advanced" && "💪"}
+      </span>
     </div>
   );
 }
